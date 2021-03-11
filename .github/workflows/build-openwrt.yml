@@ -57,6 +57,11 @@ jobs:
         source "${GITHUB_WORKSPACE}/build/${{matrix.target}}/settings.ini"
         echo "Modelfile=${{matrix.target}}" >> $GITHUB_ENV
         echo "Author=${{github.actor}}" >> $GITHUB_ENV
+        echo "Author1=${{github.action}}" >> $GITHUB_ENV
+        echo "Author2=${{github.event_name}}" >> $GITHUB_ENV
+        echo "Author3=${{github.repository_owner}}" >> $GITHUB_ENV
+        echo "Author4=${{github.run_id}}" >> $GITHUB_ENV
+        echo "Author5=${{github.run_number}}" >> $GITHUB_ENV
         echo "REPO_URL=${REPO_URL}" >> $GITHUB_ENV
         echo "REPO_BRANCH=${REPO_BRANCH}" >> $GITHUB_ENV
         echo "CONFIG_FILE=${CONFIG_FILE}" >> $GITHUB_ENV
