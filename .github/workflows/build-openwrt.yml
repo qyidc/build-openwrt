@@ -116,7 +116,7 @@ jobs:
         if [[ "${{ github.event.inputs.ssh }}" == 'ssh' ]]; then
           echo "SSHYC=true" >> $GITHUB_ENV
         fi
-        cd "${Home}/build" && rm -rf !(${{matrix.target}}|common)  && cd ../
+        cd build && rm -rf !(${{matrix.target}}|common)  && cd ../
     
     - name: 公告
       run: |
