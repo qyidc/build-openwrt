@@ -23,6 +23,9 @@ env:
   LIENOL: https://github.com/Lienol/openwrt
   PROJECT: https://github.com/immortalwrt/immortalwrt
   GITURL: https://github.com/${{github.repository}}
+  Author: ${{github.actor}}
+  Run_number: ${{github.run_number}}
+  Run_workflow: ${{github.workflow}}
   TZ: Asia/Shanghai
 
 jobs:
@@ -56,9 +59,6 @@ jobs:
       run: |
         source "${GITHUB_WORKSPACE}/build/${{matrix.target}}/settings.ini"
         echo "Modelfile=${{matrix.target}}" >> $GITHUB_ENV
-        echo "Author=${{github.actor}}" >> $GITHUB_ENV
-        echo "Run_number=${{github.run_number}}" >> $GITHUB_ENV
-        echo "Run_workflow=${{github.workflow}}" >> $GITHUB_ENV
         echo "REPO_URL=${REPO_URL}" >> $GITHUB_ENV
         echo "REPO_BRANCH=${REPO_BRANCH}" >> $GITHUB_ENV
         echo "CONFIG_FILE=${CONFIG_FILE}" >> $GITHUB_ENV
