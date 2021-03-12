@@ -143,9 +143,6 @@ jobs:
         /bin/bash "${PATH1}/$DIY_P1_SH"
         ./scripts/feeds clean
         ./scripts/feeds update -a && ./scripts/feeds install -a
-        cp -Rf "${PATH1}/files" ./
-        chmod -R +x ${Home}/files
-        cp -Rf "${PATH1}/diy"/* ./
         source "${PATH1}/common.sh" && Diy_all2
         if [[ "${REPO_URL}" == "${LEDE}" ]]; then
           source "${PATH1}/common.sh" && Diy_lede2
@@ -161,6 +158,9 @@ jobs:
           echo "ZUOZHE=ctcgfw" >> $GITHUB_ENV
         fi
         /bin/bash "${PATH1}/$DIY_P2_SH"
+        cp -Rf "${PATH1}/files" ./
+        chmod -R +x ${Home}/files
+        cp -Rf "${PATH1}/diy"/* ./
         find "${PATH1}/patches" -type f -name '*.patch' -print0 | sort -z | xargs -I % -t -0 -n 1 sh -c "cat '%'  | patch -d './' -p1 --forward --no-backup-if-mismatch"
         ./scripts/feeds install -a
         [ -e "$PATH1/$CONFIG_FILE" ] && mv "$PATH1/$CONFIG_FILE" .config
