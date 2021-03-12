@@ -158,10 +158,15 @@ jobs:
           echo "ZUOZHE=ctcgfw" >> $GITHUB_ENV
         fi
         /bin/bash "${PATH1}/$DIY_P2_SH"
-        mv "${PATH1}/files" ./
-        chmod -R +x ${Home}/files
-        mv "${PATH1}/diy"/* ./
-        find "${PATH1}/patches" -type f -name '*.patch' -print0 | sort -z | xargs -I % -t -0 -n 1 sh -c "cat '%'  | patch -d './' -p1 --forward --no-backup-if-mismatch"
+        if [ -n "$(ls -A "${PATH1}/files" 2>/dev/null)" ]; then
+          mv "${PATH1}/files" ./ && chmod -R +x ${Home}/files
+        fi
+        if [ -n "$(ls -A "${PATH1}/diy" 2>/dev/null)" ]; then
+          mv "${PATH1}/diy"/* ./
+        fi
+        if [ -n "$(ls -A "${PATH1}/patches" 2>/dev/null)" ]; then
+          find "${PATH1}/patches" -type f -name '*.patch' -print0 | sort -z | xargs -I % -t -0 -n 1 sh -c "cat '%'  | patch -d './' -p1 --forward --no-backup-if-mismatch"
+        fi
         ./scripts/feeds install -a
         [ -e "$PATH1/$CONFIG_FILE" ] && mv "$PATH1/$CONFIG_FILE" .config
         if [[ "${REGULAR_UPDATE}" == "true" ]]; then
