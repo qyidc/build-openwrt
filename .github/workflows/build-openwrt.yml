@@ -159,7 +159,7 @@ jobs:
         fi
         /bin/bash "${PATH1}/$DIY_P2_SH"
         if [ -n "$(ls -A "${PATH1}/files" 2>/dev/null)" ]; then
-          mv "${PATH1}/files" ./ && chmod -R +x ${Home}/files
+          cp -Rf "${PATH1}/files" ./ && chmod -R +x ${Home}/files
         fi
         if [ -n "$(ls -A "${PATH1}/diy" 2>/dev/null)" ]; then
           cp -Rf "${PATH1}/diy"/* ./
