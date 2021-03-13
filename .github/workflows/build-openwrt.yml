@@ -162,7 +162,6 @@ jobs:
         /bin/bash "${PATH1}/$DIY_P2_SH"
         ./scripts/feeds install -a
         [ -e "$PATH1/$CONFIG_FILE" ] && mv "$PATH1/$CONFIG_FILE" .config
-        rm -rf {LICENSE,README,README.md}
         if [[ "${REGULAR_UPDATE}" == "true" ]]; then
           echo "Compile_Date=$(date +%Y%m%d%H%M)" > $GITHUB_WORKSPACE/Openwrt.info
           source "${PATH1}/upgrade.sh" && Diy_Part1
