@@ -172,8 +172,10 @@ jobs:
     
     - name: 为编译作最后整理
       run: |
-        source "${PATH1}/common.sh" && Diy_chajian
-        source "${PATH1}/common.sh" && Diy_adgu
+        cd openwrt
+        source "${PATH1}"/common.sh && Diy_chajian
+        make defconfig
+        source "${PATH1}"/common.sh && Diy_adgu
         if [ "${REGULAR_UPDATE}" == "true" ]; then
           source "${PATH1}/upgrade.sh" && Diy_Part2
         fi
