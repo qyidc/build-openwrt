@@ -172,8 +172,8 @@ jobs:
     
     - name: 为编译作最后整理
       run: |
-        cd openwrt
         source "${PATH1}/common.sh" && Diy_chajian
+        cd openwrt
         make defconfig
         source "${PATH1}/common.sh" && Diy_adgu
         if [ "${REGULAR_UPDATE}" == "true" ]; then
