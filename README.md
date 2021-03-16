@@ -73,3 +73,14 @@
 - 感谢微软免费提供的编译平台
 - 感谢各位大佬提供的各种各样的插件
 - 感谢各位帮助过我的人，祝福各位好人一生平安
+
+
+## OpenWrt Firmware instructions
+| Model  | STB | OpenWrt Firmware |
+| ---- | ---- | ---- |
+| s905x3 | [x96](https://tokopedia.link/uMaH09s41db), [hk1](https://tokopedia.link/pNHf5AE41db), [h96](https://tokopedia.link/wRh6SVI41db) | openwrt_s905x3_v*.img |
+| s905x2 | [x96max4g](https://tokopedia.link/HcfLaRzjqeb), [x96max2g](https://tokopedia.link/ro207Hsjqeb) | openwrt_s905x2_v*.img |
+| s905x | [hg680p](https://tokopedia.link/NWF1Skg21db), [b860h](https://tokopedia.link/fp8wG3711db) | openwrt_s905x_v*.img |
+| s922x | [belink](https://tokopedia.link/RAgZmOM41db), [belinkpro](https://tokopedia.link/sfTHlfS41db), [ugoos](https://tokopedia.link/pHGKXuV41db) | openwrt_s922x_v*.img |
+| s912 | octopus | openwrt_s912_v*.img |
+| s905d | n1 | openwrt_s905d_v*.img |
