@@ -104,7 +104,7 @@ jobs:
         echo "Home=${GITHUB_WORKSPACE}/openwrt" >> $GITHUB_ENV
         echo "PATH1=${GITHUB_WORKSPACE}/openwrt/build/${{matrix.target}}" >> $GITHUB_ENV
         echo "artifact=${GITHUB_WORKSPACE}/openwrt/bin/Firmware" >> $GITHUB_ENV
-        echo "CanKu="${GITURL##*com/${Author}/}"" >> $GITHUB_ENV
+        echo "CanKu=${GITURL##*com/${Author}/}" >> $GITHUB_ENV
     
     - name: 调整脚本文件
       run: |
