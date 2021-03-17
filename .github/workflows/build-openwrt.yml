@@ -26,7 +26,7 @@ env:
   Author: ${{github.actor}}
   Run_number: ${{github.run_number}}
   Run_workflow: ${{github.workflow}}
-  CanKu: ${GITURL##*com/Author/}
+  CanKu: ${GITURL##*com/${Author}/}
   TZ: Asia/Shanghai
 
 jobs:
