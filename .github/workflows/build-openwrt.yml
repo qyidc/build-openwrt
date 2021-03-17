@@ -230,6 +230,7 @@ jobs:
     - name: 编译N1机型时,打包（N1、微加云、贝壳云、我家云、S9xxx）固件
       run: |
         if [[ ${{matrix.target}} =~ (Lede_phicomm_n1|Project_phicomm_n1) ]]; then
+          echo "NEIHE=-b s905x3_s905x2_s905x_s905d_s922x_s912 -k 5.10.23.TF_5.4.105"
           source "${PATH1}/common.sh" && Diy_n1
         fi
     
