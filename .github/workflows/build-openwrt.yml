@@ -26,7 +26,6 @@ env:
   Author: ${{github.actor}}
   Run_number: ${{github.run_number}}
   Run_workflow: ${{github.workflow}}
-  CanKu: ${GITURL#*${Author}/}
   TZ: Asia/Shanghai
 
 jobs:
@@ -60,6 +59,7 @@ jobs:
       run: |
         source "${GITHUB_WORKSPACE}/build/${{matrix.target}}/settings.ini"
         echo "Modelfile=${{matrix.target}}" >> $GITHUB_ENV
+        echo "CanKu=${GITURL#*${Author}/}" >> $GITHUB_ENV
         echo "REPO_URL=${REPO_URL}" >> $GITHUB_ENV
         echo "REPO_BRANCH=${REPO_BRANCH}" >> $GITHUB_ENV
         echo "CONFIG_FILE=${CONFIG_FILE}" >> $GITHUB_ENV
